@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IK2-ar-9Yh">
-                                <rect key="frame" x="0.0" y="40" width="375" height="96.5"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="424.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMl-Tn-qXH">
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
@@ -40,6 +41,16 @@
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZwN-Gj-fEh"/>
                                         </connections>
                                     </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="xjy-Zh-8Df">
+                                        <rect key="frame" x="0.0" y="104.5" width="320" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xjy-Zh-8Df" secondAttribute="height" multiplier="1:1" id="PI2-w8-bmk"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="36E-MB-Vhv" appends="YES" id="xVw-bp-Que"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="IQQ-t6-mdF" secondAttribute="trailing" id="p6h-FV-MY8"/>
@@ -57,11 +68,20 @@
                     <connections>
                         <outlet property="mealNameLabel" destination="ZMl-Tn-qXH" id="9wB-xQ-vWJ"/>
                         <outlet property="nameTextField" destination="IQQ-t6-mdF" id="Jbe-kE-e2x"/>
+                        <outlet property="photoImageView" destination="xjy-Zh-8Df" id="C6L-71-LVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="36E-MB-Vhv">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="ZAB-lR-0W7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image-1" width="540" height="540"/>
+    </resources>
 </document>
