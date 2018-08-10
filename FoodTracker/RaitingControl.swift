@@ -22,6 +22,15 @@ class RaitingControl: UIStackView {
         setupButton()
     }
     
+    //MARK: Button Action
+    // in order for the  button to be created (#selector) the "@objc" was added by compailer in front of this function
+    @objc func ratingButtonTapped(button: UIButton) {
+        print("button pressed 👍🏻")
+    }
+    
+    
+    
+    
     //MARK: Private Methods
     
     private func setupButton() {
@@ -33,6 +42,10 @@ class RaitingControl: UIStackView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+        
+        //set up the button action
+        button.addTarget(self, action: #selector(RaitingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+        
         
         // add the button to the stack
         addArrangedSubview(button)
