@@ -42,7 +42,7 @@ class RaitingControl: UIStackView {
     
     private func setupButton() {
         
-        for _ in 1..<5 {
+        for _ in 0..<5 {
             // create button
             let button = UIButton()
             button.backgroundColor = UIColor.red
