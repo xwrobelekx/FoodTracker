@@ -84,7 +84,7 @@ import UIKit
         let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
         
         
-        for _ in 0..<starCount {
+        for index in 0..<starCount {
             // create button
             let button = UIButton()
             button.setImage(emptyStar, for: .normal)
@@ -96,6 +96,10 @@ import UIKit
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
+            
+            //set the accesibility info
+            button.accessibilityLabel = "Set \(index + 1) star rating"
+            
             
             //set up the button action
             button.addTarget(self, action: #selector(RaitingControl.ratingButtonTapped(button:)), for: .touchUpInside)
@@ -118,6 +122,28 @@ import UIKit
             
             // If the index of a button is less than the rating, that button should be selected.
             button.isSelected = index < rating
+            
+            // Set the hint string for the currently selected star
+            let hintString: String?
+            
+            if rating == index + 1 {
+                hintString = "Tap to reset rating to zero."
+            } else {
+                hintString = nil
+            }
+            
+            //calculate the value string
+            let valueString: String
+            switch rating {
+            case 0: valueString = "No rating set."
+            case 1: valueString = "1 star rating."
+            default: valueString = "\(rating) stars set."
+            }
+            
+            // assign the hint string and value string
+            button.accessibilityHint = hintString
+            button.accessibilityValue = valueString
+            
         }
         
         
