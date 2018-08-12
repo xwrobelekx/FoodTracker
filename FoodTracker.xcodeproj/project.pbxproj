@@ -14,6 +14,7 @@
 		3BE89A5B211CED3100EEA266 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE89A59211CED3100EEA266 /* LaunchScreen.storyboard */; };
 		3BE89A66211CED3100EEA266 /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE89A65211CED3100EEA266 /* FoodTrackerTests.swift */; };
 		3BE89A71211E3D6D00EEA266 /* RaitingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE89A70211E3D6D00EEA266 /* RaitingControl.swift */; };
+		3BE89A73212040D900EEA266 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE89A72212040D900EEA266 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		3BE89A65211CED3100EEA266 /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		3BE89A67211CED3100EEA266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE89A70211E3D6D00EEA266 /* RaitingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaitingControl.swift; sourceTree = "<group>"; };
+		3BE89A72212040D900EEA266 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE89A50211CED3000EEA266 /* AppDelegate.swift */,
+				3BE89A72212040D900EEA266 /* Meal.swift */,
 				3BE89A52211CED3000EEA266 /* ViewController.swift */,
 				3BE89A70211E3D6D00EEA266 /* RaitingControl.swift */,
 				3BE89A54211CED3000EEA266 /* Main.storyboard */,
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE89A73212040D900EEA266 /* Meal.swift in Sources */,
 				3BE89A71211E3D6D00EEA266 /* RaitingControl.swift in Sources */,
 				3BE89A53211CED3000EEA266 /* ViewController.swift in Sources */,
 				3BE89A51211CED3000EEA266 /* AppDelegate.swift in Sources */,
