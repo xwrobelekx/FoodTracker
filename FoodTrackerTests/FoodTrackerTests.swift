@@ -27,7 +27,7 @@ class FoodTrackerTests: XCTestCase {
     }
     
     // Confirm that the Meal initialier returns nil when passed a negative rating or an empty name.
-    func textMealInitalizationFail() {
+    func testMealInitalizationFail() {
         // negative rating
         let negativeRatingMeal = Meal.init(name: "Negative", image: nil, rating: -1)
         XCTAssertNil(negativeRatingMeal)
