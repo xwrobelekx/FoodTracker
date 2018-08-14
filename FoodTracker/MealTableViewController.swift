@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import os.log
+
 
 class MealTableViewController: UITableViewController {
     
@@ -15,6 +17,9 @@ class MealTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
 
         // load the sample data
         loadSampleMeals()
@@ -28,12 +33,10 @@ class MealTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
         return  meals.count
     }
 
@@ -50,12 +53,9 @@ class MealTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let meal = meals[indexPath.row]
         
-        
-
         cell.nameLabel.text = meal.name
         cell.imageView?.image = meal.image
         cell.ratingControll.rating = meal.rating
-        
 
         return cell
     }
@@ -96,28 +96,56 @@ class MealTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+      super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "AddItem" : os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+        case "ShowDetail" :
+            guard let mealDetailViewController = segue.destination as? MealViewController else {
+            fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedMealCell = sender as? MealTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedMealCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedMeal = meals[indexPath.row]
+            mealDetailViewController.meal = selectedMeal
+        default:
+            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+        }
     }
-    */
+    
+    
+    
     
     //MARK: Actions
     
-    @IBAction func unwinfToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
             
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: meals.count, section: 0)
             
-            meals.append(meal)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing meal.
+                meals[selectedIndexPath.row] = meal
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+
+            } else {
+                // Add a new meal.
+                let newIndexPath = IndexPath(row: meals.count, section: 0)
+                
+                meals.append(meal)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+                
+            }
         }
     }
     

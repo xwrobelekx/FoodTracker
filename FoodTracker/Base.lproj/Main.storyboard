@@ -63,7 +63,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="pBw-u3-O2l">
                             <connections>
-                                <segue destination="1SS-57-P75" kind="unwind" unwindAction="unwinfToMealListWithSender:" id="vgh-Pg-qp4"/>
+                                <segue destination="1SS-57-P75" kind="unwind" unwindAction="unwindToMealListWithSender:" id="Fuy-bg-Jjr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -121,6 +121,7 @@
                                     <outlet property="nameLabel" destination="f9N-uL-IjH" id="kMg-mV-2OR"/>
                                     <outlet property="photoImageView" destination="QeI-ll-76f" id="HPd-Iw-OLV"/>
                                     <outlet property="ratingControll" destination="V8h-JR-yV6" id="Erg-m1-uL8"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="KoH-of-6Ob"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -175,10 +176,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxU-fb-Ye0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1177" y="538"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image-1" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KoH-of-6Ob"/>
+    </inferredMetricsTieBreakers>
 </document>

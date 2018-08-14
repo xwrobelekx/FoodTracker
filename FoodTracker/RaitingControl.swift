@@ -43,7 +43,9 @@ import UIKit
         setupButton()
     }
     
+    
     //MARK: Button Action
+    
     // in order for the  button to be created (#selector) the "@objc" was added by compailer in front of this function
     @objc func ratingButtonTapped(button: UIButton) {
         guard let index = ratingButtons.index(of: button) else {
@@ -62,8 +64,6 @@ import UIKit
         }
         
     }
-    
-    
     
     
     //MARK: Private Methods
