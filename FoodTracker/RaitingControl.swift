@@ -30,7 +30,7 @@ import UIKit
         }
     }
     
-
+    
     //MARK: Initalization
     
     override init(frame: CGRect) {
@@ -69,7 +69,7 @@ import UIKit
     //MARK: Private Methods
     
     private func setupButton() {
-    
+        
         // clear any existing buttons
         for button in ratingButtons {
             removeArrangedSubview(button)
@@ -148,7 +148,7 @@ import UIKit
         
         
     }
-
+    
 }
 
 

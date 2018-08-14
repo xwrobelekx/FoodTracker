@@ -41,13 +41,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             
         }
         
-    
+        
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
         
-      
+        
     }
-
+    
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -60,7 +60,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Disable the Save button while editing.
         saveButton.isEnabled = false
     }
-   
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
@@ -97,7 +97,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
         if isPresentingInAddMealMode {
-        dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         } else if let owningNavigationController = navigationController {
             owningNavigationController.popViewController(animated: true)
         } else {
@@ -109,8 +109,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-    
-    
+        
+        
         // Configure the destination view controller only when the save button is pressed.
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
@@ -153,6 +153,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let text = nameTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
-
+    
 }
 
