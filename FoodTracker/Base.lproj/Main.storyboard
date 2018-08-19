@@ -100,22 +100,40 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="QeI-ll-76f">
-                                            <rect key="frame" x="16" y="-1" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="QeI-ll-76f">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="Jlj-hM-DV2"/>
+                                                <constraint firstAttribute="height" constant="90" id="dEE-or-aea"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9N-uL-IjH">
-                                            <rect key="frame" x="114" y="11" width="252" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V8h-JR-yV6" customClass="RaitingControl" customModule="FoodTracker" customModuleProvider="target">
-                                            <rect key="frame" x="114" y="35" width="252" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1vj-Tj-FN8">
+                                            <rect key="frame" x="98" y="8.5" width="252" height="81"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9N-uL-IjH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V8h-JR-yV6" customClass="RaitingControl" customModule="FoodTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="37" width="252" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="252" id="B6B-cY-oVq"/>
+                                                        <constraint firstAttribute="height" constant="44" id="DYS-ot-5o8"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1vj-Tj-FN8" firstAttribute="top" secondItem="2UK-fd-eqP" secondAttribute="top" constant="8" id="KfY-eR-bBg"/>
+                                        <constraint firstItem="QeI-ll-76f" firstAttribute="leading" secondItem="2UK-fd-eqP" secondAttribute="leading" id="T1p-VD-t3m"/>
+                                        <constraint firstItem="1vj-Tj-FN8" firstAttribute="leading" secondItem="QeI-ll-76f" secondAttribute="trailing" constant="8" id="a9h-b0-l0g"/>
+                                        <constraint firstItem="QeI-ll-76f" firstAttribute="top" secondItem="2UK-fd-eqP" secondAttribute="top" id="cXc-de-iRF"/>
+                                        <constraint firstAttribute="bottom" secondItem="1vj-Tj-FN8" secondAttribute="bottom" id="ieA-AP-9xV"/>
+                                        <constraint firstAttribute="bottom" secondItem="QeI-ll-76f" secondAttribute="bottom" id="kaR-eo-lYS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="f9N-uL-IjH" id="kMg-mV-2OR"/>

@@ -60,8 +60,9 @@ class MealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         cell.nameLabel.text = meal.name
-        cell.imageView?.image = meal.image
+        cell.photoImageView.image = meal.image
         cell.ratingControll.rating = meal.rating
+        // cell.imageView?.image = meal.image // -> this cause to have "2" images one on top of another.
         
         return cell
     }
